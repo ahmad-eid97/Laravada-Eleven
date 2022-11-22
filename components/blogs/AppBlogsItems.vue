@@ -7,184 +7,31 @@
                 
             </div>
             <div class="row pt-45">
-                <div class="col-md-6 col-lg-4">
-                    <div class="item">
-                        <div class="image">
-                            <img class="img-fluid" src="https://the7.io/weed/wp-content/uploads/sites/51/2019/01/weed015-768x576.jpg" alt="">
-                            <span class="date">
-                                <span class="d-inline-block month">
-                                    JAN
-                                </span>
-                                <span class="d-block day">
-                                    29
-                                </span>
-                            </span>
-                            <span class="tag">
-                                Technology
-                            </span>
+                <div v-for="blog in blogs.blogs" :key="blog.id" class="col-lg-4 col-md-6" @click="$router.push(`/blog/${blog.id}`)">
+                    <div class="blog-card">
+                        <div class="blog-img">
+                            <router-link to="blog">
+                                <img :src="blog.category.image" alt="Blog Images">
+                            </router-link>
+                            <div class="blog-tag">
+                                <h3>11</h3>
+                                <span>Dec</span>
+                            </div>
                         </div>
-                        <h3>
-                            <a href="#">
-                                Nulla iaculis efficitu from weed
-                            </a>
+                        <h3 class="title">
+                            <router-link to="blog">{{blog.title}}</router-link>
                         </h3>
-                        <p>
-                            Suspendisse bibendum facilisis congue. Suspendisse nisi lacus, convallis non accumsan sit amet, accumsan a arcu. Cras ut tempus mi. Aliquam…
-                        </p>
-                        <a href="#" class="btn">
-                            Read more
-                            <font-awesome-icon icon="fa-solid fa-caret-right" />
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="item">
-                        <div class="image">
-                            <img class="img-fluid" src="https://the7.io/weed/wp-content/uploads/sites/51/2019/01/weed003-768x576.jpg" alt="">
-                            <span class="date">
-                                <span class="d-inline-block month">
-                                    JAN
-                                </span>
-                                <span class="d-block day">
-                                    29
-                                </span>
-                            </span>
-                            <span class="tag">
-                                Industry blog-area
-                            </span>
+                        <div class="content">
+                            <ul>
+                                <li>
+                                    <a href="#"><font-awesome-icon icon="fa-regular fa-user" />By Admin</a>
+                                </li>
+                                <li>
+                                    <a href="index.html"><font-awesome-icon icon="fa-solid fa-tag" />Business</a>
+                                </li>
+                            </ul>
+                            <p>{{blog.description}}</p>
                         </div>
-                        <h3>
-                            <a href="#">
-                                Duis cannabis – quis sem tempus enim suscipit
-                            </a>
-                        </h3>
-                        <p>
-                            Cras ut tempus mi. Aliquam non lorem fermentum, maximus massa at, interdum turpis. Integer posuere leo eros, nec ornare enim…
-                        </p>
-                        <a href="#" class="btn">
-                            Read more
-                            <font-awesome-icon icon="fa-solid fa-caret-right" />
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="item">
-                        <div class="image">
-                            <img class="img-fluid" src="https://the7.io/weed/wp-content/uploads/sites/51/2019/01/weed018-768x576.jpg" alt="">
-                            <span class="date">
-                                <span class="d-inline-block month">
-                                    JAN
-                                </span>
-                                <span class="d-block day">
-                                    29
-                                </span>
-                            </span>
-                            <span class="tag">
-                                Industry blog-area
-                            </span>
-                        </div>
-                        <h3>
-                            <a href="#">
-                                Vivamus sodales condimentum 
-                            </a>
-                        </h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu eros vel eros ultrices consectetur non non mauris. Duis egestas…
-                        </p>
-                        <a href="#" class="btn">
-                            Read more
-                            <font-awesome-icon icon="fa-solid fa-caret-right" />
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="item">
-                        <div class="image">
-                            <img class="img-fluid" src="https://the7.io/weed/wp-content/uploads/sites/51/2019/01/weed022-768x576.jpg" alt="">
-                            <span class="date">
-                                <span class="d-inline-block month">
-                                    JAN
-                                </span>
-                                <span class="d-block day">
-                                    29
-                                </span>
-                            </span>
-                            <span class="tag">
-                                Industry blog-area
-                            </span>
-                        </div>
-                        <h3>
-                            <a href="#">
-                                Lorem ipsum cannabis consectetur non non
-                            </a>
-                        </h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu eros vel eros ultrices consectetur non non mauris. Duis egestas…
-                        </p>
-                        <a href="#" class="btn">
-                            Read more
-                            <font-awesome-icon icon="fa-solid fa-caret-right" />
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="item">
-                        <div class="image">
-                            <img class="img-fluid" src="https://the7.io/weed/wp-content/uploads/sites/51/2019/01/weed025-768x576.jpg" alt="">
-                            <span class="date">
-                                <span class="d-inline-block month">
-                                    JAN
-                                </span>
-                                <span class="d-block day">
-                                    29
-                                </span>
-                            </span>
-                            <span class="tag">
-                                Industry blog-area
-                            </span>
-                        </div>
-                        <h3>
-                            <a href="#">
-                                Vivamus id cannabis – tortor magna
-                            </a>
-                        </h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu eros vel eros ultrices consectetur non non mauris. Duis egestas…
-                        </p>
-                        <a href="#" class="btn">
-                            Read more
-                            <font-awesome-icon icon="fa-solid fa-caret-right" />
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="item">
-                        <div class="image">
-                            <img class="img-fluid" src="https://the7.io/weed/wp-content/uploads/sites/51/2019/01/weed024-768x576.jpg" alt="">
-                            <span class="date">
-                                <span class="d-inline-block month">
-                                    JAN
-                                </span>
-                                <span class="d-block day">
-                                    29
-                                </span>
-                            </span>
-                            <span class="tag">
-                                Industry blog-area
-                            </span>
-                        </div>
-                        <h3>
-                            <a href="#">
-                                Nullam tortor lectus weed store
-                            </a>
-                        </h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu eros vel eros ultrices consectetur non non mauris. Duis egestas…
-                        </p>
-                        <a href="#" class="btn">
-                            Read more
-                            <font-awesome-icon icon="fa-solid fa-caret-right" />
-                        </a>
                     </div>
                 </div>
                 <div class="col-lg-12 col-md-12 text-center">
@@ -207,7 +54,8 @@
 
 <script>
 export default {
-    name: 'AppBlogsItems'
+    name: 'AppBlogsItems',
+    props: ["blogs"]
 }
 </script>
 
@@ -264,6 +112,8 @@ export default {
     }
     .blog-card .blog-img img {
         border-radius: 60px 12px 0 0;
+        height: 250px;
+        width: 100%;
     }
     .blog-card .blog-img .blog-tag {
         position: absolute;
