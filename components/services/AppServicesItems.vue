@@ -4,7 +4,6 @@
             <div class="section-title text-center">
                 <span class="sp-color2">Our Services</span>
                 <h2>We Provide a Wide Variety of It Services</h2>
-                
                 <p class="margin-auto mx-auto">
                 Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec
                 </p>
@@ -13,12 +12,12 @@
                 <div v-for="service in services.services" :key="service.id" class="col-lg-3 col-sm-6 col-md-4" @click="$router.push(`/service/${service.id}`)">
                     <div class="services-card services-style-bg">
                         <div class="icon">
-                            <font-awesome-icon icon="fa-solid fa-person-dots-from-line" />
+                            <font-awesome-icon :icon="service.icon" />
                         </div>
                         <h3>
                             <router-link to="service">{{service.title}}</router-link>
                         </h3>
-                        <p>{{service.description}}</p>
+                        <p>{{service.short_description}}</p>
                         <router-link to="service" class="learn-btn">Learn More 
                             <i class="bx bx-chevron-right"></i>
                         </router-link>
@@ -64,7 +63,7 @@ export default {
 }
 .services-style-area .section-title h2 {
     max-width: 600px;
-    color: #212934;
+    color: #252525;
     font-size: 35px;
     font-weight: 800;
     letter-spacing: -1px;
@@ -76,26 +75,22 @@ export default {
     margin-left: auto;
     text-align: center;
 }
-.services-style-area .section-title .seprator img {
-    width: 70px;
-    margin-top: 5px;
-    margin-bottom: 20px;
-}
+
 .services-style-area .section-title p {
   max-width: 600px;
 }
 .services-card {
-    box-shadow: 0px 0px 8px rgba(0,0,0,.3);
+    box-shadow: 0 0 15px rgba(0,0,0,.07);
     padding: 40px 30px 35px;
-    border-radius: 0px;
+    border-radius: 12px;
     background-color: #fff;
     position: relative;
     z-index: 1;
     margin-bottom: 30px;
-    color: #212934;
+    color: #252525;
 }
 .services-card h3 a {
-    color: #212934;
+    color: #252525;
     font-size: 22px;
 
 }
@@ -107,13 +102,13 @@ export default {
     content: '';
     position: absolute;
     z-index: -1;
-    top: 40px;
-    left: 30px;
-    width: 80px;
-    height: 80px;
+    bottom: 0;
+    right: 0;
+    width: 90px;
+    height: 90px;
     background-color:var(--main-color);
-    border-radius: 0;
-    opacity: 1;
+    border-radius: 12px;
+    opacity: .1;
     -webkit-transition: .7s;
     transition: .7s;
 }
@@ -125,10 +120,10 @@ export default {
     z-index: -1;
     bottom: 0;
     right: 0;
-    width: 0;
-    height: 0;
+    width: 75px;
+    height: 75px;
     background-color:var(--main-color);
-    border-radius: 0;
+    border-radius: 12px;
     opacity: .1;
     -webkit-transition: .7s;
     transition: .7s;
@@ -136,10 +131,8 @@ export default {
 .services-card:hover::before {
     width: 100%;
     height: 100%;
-    border-radius: 0;
+    border-radius: 12px;
     opacity: 1;
-    top: 0;
-    left: 0;
 }
 .services-card .icon {
     font-size: 45px;
@@ -148,7 +141,7 @@ export default {
     line-height: 80px;
     color: #fff;
     background-color:var(--main-color);
-    border-radius: 0px;
+    border-radius: 12px;
     display: inline-block;
     text-align: center;
     margin-bottom: 12px;
@@ -160,9 +153,9 @@ export default {
     width: 80px;
     height: 80px;
     line-height: 80px;
-    color: #fff;
-    background-color: transparent;
-    border-radius: 0px;
+    color: var(--main-color);
+    background-color: #fff;
+    border-radius: 12px;
     display: inline-block;
     text-align: center;
     margin-bottom: 12px;

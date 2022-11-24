@@ -3,7 +3,7 @@
         <h3 class="title">Gallery</h3>
         <ul class="blog-gallery">
             <li
-                v-for="(image, index) in media"
+                v-for="(image, index) in serviceDetails.gallery"
                 :key="index"
                 style="display: inline-block; margin: 0 5px 5px 0"
             >
@@ -24,6 +24,9 @@
 <script>
 export default {
     name: 'AppServiceGallery',
+    props: ["serviceDetails"],
+    components: {
+    },
     data () {
         return {
             media: [
@@ -33,6 +36,7 @@ export default {
                 'https://templates.hibootstrap.com/techex/default/assets/images/blog/blog-small-img4.jpg',
                 'https://templates.hibootstrap.com/techex/default/assets/images/blog/blog-small-img5.jpg',
                 'https://templates.hibootstrap.com/techex/default/assets/images/blog/blog-small-img6.jpg',
+                    
             ],
             imageIndex: null
         }
@@ -79,7 +83,7 @@ export default {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: #51e5a5;
+  background-color: var(--main-color);
   -webkit-transition: all .5s;
   transition: all .5s;
   opacity: 0;

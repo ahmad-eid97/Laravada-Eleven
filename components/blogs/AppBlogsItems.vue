@@ -4,7 +4,6 @@
             <div class="section-title text-center">
                 <span class="sp-color2">Latest Blog</span>
                 <h2>Let’s Check Some Latest Blog</h2>
-                
             </div>
             <div class="row pt-45">
                 <div v-for="blog in blogs.blogs" :key="blog.id" class="col-lg-4 col-md-6" @click="$router.push(`/blog/${blog.id}`)">
@@ -14,8 +13,8 @@
                                 <img :src="blog.category.image" alt="Blog Images">
                             </router-link>
                             <div class="blog-tag">
-                                <h3>11</h3>
-                                <span>Dec</span>
+                                <h3>{{ $date(new Date(blog.publish_date), 'dd') }}</h3>
+                                <span>{{ $date(new Date(blog.publish_date), 'MMM') }}</span>
                             </div>
                         </div>
                         <h3 class="title">
@@ -24,13 +23,13 @@
                         <div class="content">
                             <ul>
                                 <li>
-                                    <a href="#"><font-awesome-icon icon="fa-regular fa-user" />By Admin</a>
+                                    <a href="#"><font-awesome-icon icon="fa-regular fa-user" />By {{blog.username}}</a>
                                 </li>
                                 <li>
                                     <a href="index.html"><font-awesome-icon icon="fa-solid fa-tag" />Business</a>
                                 </li>
                             </ul>
-                            <p>{{blog.description}}</p>
+                            <p>{{blog.short_description}}</p>
                         </div>
                     </div>
                 </div>
@@ -67,8 +66,8 @@ export default {
         color: var(--main-color);
     }
     .blog-area .section-title h2 {
-        max-width: 800px;
-        color: #212934;
+        max-width: 600px;
+        color: #212529;
         font-size: 35px;
         font-weight: 800;
         letter-spacing: -1px;
@@ -90,7 +89,7 @@ export default {
         -webkit-box-shadow: 0 0 15px rgba(0,0,0,.05);
         box-shadow: 0 0 15px rgba(0,0,0,.05);
         margin-bottom: 30px;
-        border-radius: 60px 12px 60px 12px;
+        border-radius: 12px;
         -webkit-transition: .9s;
         transition: .9s;
         border: 1px solid #f1f1f1;
@@ -111,7 +110,7 @@ export default {
         margin: 0 0 0;
     }
     .blog-card .blog-img img {
-        border-radius: 60px 12px 0 0;
+        border-radius: 12px 12px 0 0;
         height: 250px;
         width: 100%;
     }
@@ -120,9 +119,9 @@ export default {
         top: -10px;
         right: 30px;
         text-align: center;
-        background-color: #5348dc;
+        background-color: var(--main-color);
         padding: 15px 12px;
-        border-radius: 30px 8px 30px 8px;
+        border-radius: 12px;
         text-align: center;
     }
     .blog-card:hover .blog-img .blog-tag {
@@ -130,9 +129,9 @@ export default {
         top: -20px;
         right: 30px;
         text-align: center;
-        background-color: #5348dc;
+        background-color: var(--main-color);
         padding: 15px 12px;
-        border-radius: 30px 8px 30px 8px;
+        border-radius: 12px;
         text-align: center;
     }
     .blog-card .blog-img .blog-tag h3 {
@@ -149,11 +148,11 @@ export default {
         font-weight: 500;
     }
     .blog-card .content ul li a {
-        color: #5348dc;
+        color: #212529;
     }
     .blog-card .content ul li a svg{
         font-size: 20px;
-        color: #51e5a5;
+        color: var(--main-color);
         margin-right: 5px;
         position: relative;
         top: 3px;
@@ -176,7 +175,7 @@ export default {
     .blog-card h3.title {
         font-size: 22px;
         padding: 10px 30px;
-        background: #51e5a5; 
+        background: var(--main-color); 
         text-align: center;
         position: relative;
         z-index: 1;
@@ -191,115 +190,5 @@ export default {
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
-    }
-    .blog-area .item {
-        background-color: #fff;
-        padding: 30px;
-        width: 360px;
-        margin: 0 auto;
-        -webkit-box-shadow: 0 0 15px rgba(0,0,0,.05);
-        box-shadow: 0 0 15px rgba(0,0,0,.05);
-        margin-bottom: 20px;
-    }
-    .blog-area .item .image {
-        width: 320px;
-        height: 240px;
-        overflow: hidden;
-        position: relative;
-        margin-bottom: 20px;
-    }
-    .blog-area .item .image img {
-        transition: all 2s linear;
-    }
-    .blog-area .item .image:hover img {
-        transform: scale(1.2);
-    }
-    .blog-area .item .image .date {
-        position: absolute;
-        width: 63px;
-        height: 63px;
-        background-color: #fff;
-        border-radius: 50%;
-        top: 10px;
-        right: 10px;
-        text-align: center;
-    }
-    .blog-area .item .image .date .month {
-        color: rgb(34, 34, 34);
-        font-size: 11px;
-        font-weight: 700;
-        line-height: 19px;
-        margin-bottom: 2px;
-        position: relative;
-        text-transform: uppercase;
-        border-bottom: 2px solid var(--main-color);
-    }
-    .blog-area .item .image .date .day {
-        color: rgb(34, 34, 34);
-        font-size: 24px;
-        font-weight: 700;
-        line-height: 29px;
-    }
-    .blog-area .item .image .tag {
-        background-color: rgba(0, 0, 0, 0.75);
-        color: rgb(255, 255, 255);
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 22px;
-        margin-bottom: 2px;
-        margin-left: 0px;
-        margin-right: 0px;
-        margin-top: 0px;
-        padding-bottom: 1px;
-        padding-left: 9px;
-        padding-right: 9px;
-        padding-top: 2px;
-        position: absolute;
-        top: 10px;
-        left: 10px;
-    }
-    .blog-area .item h3 a {
-        color: rgb(51, 51, 51);
-        font-size: 20px;
-        font-weight: 700;
-        text-decoration-line: none;
-        transition-delay: 0s;
-        transition-duration: 0.35s;
-        transition-property: color;
-        transition-timing-function: ease;
-        text-transform: uppercase;
-    }
-    .blog-area .item h3 a:hover {
-        color: rgb(117, 179, 37);
-    }
-    .blog-area .item p {
-        color: rgb(133, 134, 140);
-        font-size: 14px;
-        line-height: 21px;
-        margin-bottom: 10px;
-    }
-    .blog-area  .item .btn{
-        background-color: var(--main-color);
-        border-radius: 3px;
-        border: none;
-        color: rgb(255, 255, 255);
-        cursor: pointer;
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 14px;
-        padding-bottom: 8px;
-        padding-left: 12px;
-        padding-right: 12px;
-        padding-top: 8px;
-        margin-bottom: 20px;
-        margin-left: 0px;
-        margin-right: 10px;
-        margin-top: 0px;
-    }
-    .blog-area  .item .btn:hover{
-        background-color: rgb(160, 209, 95);
-        color: rgb(255, 255, 255);
-        box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 13px 2px;
-
     }
 </style>

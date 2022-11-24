@@ -3,7 +3,7 @@
         <h3 class="title">Latest Blog</h3>
         <div class="widget-popular-post">
           <article class="item">
-            <a href="#" target="_blank" class="blog-thumb">
+            <a href="#" target="_blank" class="thumb">
               <img class="full-image cover bg1" role="img" src="/assets/images/blog-details.jpg">
             </a>
             <div class="info">
@@ -16,7 +16,7 @@
             </div>
           </article>
           <article class="item">
-            <a href="#" target="_blank" class="blog-thumb">
+            <a href="#" target="_blank" class="thumb">
               <img class="full-image cover bg1" role="img" src="/assets/images/blog-img2.jpg">
             </a>
             <div class="info">
@@ -29,7 +29,7 @@
             </div>
           </article>
           <article class="item">
-            <a href="#" target="_blank" class="blog-thumb">
+            <a href="#" target="_blank" class="thumb">
               <img class="full-image cover bg1" role="img" src="/assets/images/blog-img3.jpg">
             </a>
             <div class="info">
@@ -42,7 +42,7 @@
             </div>
           </article>
           <article class="item">
-            <a href="#" target="_blank" class="blog-thumb">
+            <a href="#" target="_blank" class="thumb">
               <img class="full-image cover bg1" role="img" src="/assets/images/blog-img1.jpg">
             </a>
             <div class="info">
@@ -90,13 +90,13 @@ export default {
   padding-bottom: 8px;
   border-bottom: 1px solid #e2e2e2;
 }
-.side-bar-widget .widget-popular-post .item .blog-thumb {
+.side-bar-widget .widget-popular-post .item .thumb {
   float: left;
   overflow: hidden;
   position: relative;
   margin-right: 15px;
 }
-.side-bar-widget .widget-popular-post .item .blog-thumb .full-image {
+.side-bar-widget .widget-popular-post .item .thumb .full-image {
   width: 80px;
   height: 80px;
   display: inline-block;
@@ -104,7 +104,7 @@ export default {
   background-repeat: no-repeat;
   background-position: center center !important;
   position: relative;
-  background-color: transparent;
+  background-color: #070b3b;
   border-radius: 12px;
 }
 .side-bar-widget .widget-popular-post .item .info {

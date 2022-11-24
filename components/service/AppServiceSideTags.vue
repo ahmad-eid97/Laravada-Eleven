@@ -22,7 +22,7 @@ export default {
 <style>
 .side-bar-widget .title {
   font-size: 20px;
-  color: var(--main-color);
+  color: #252525;
   padding: 0;
   font-weight: 600;
   position: relative;
