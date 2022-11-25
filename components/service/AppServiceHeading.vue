@@ -1,5 +1,5 @@
 <template>
-    <div class="page-heading">
+    <div class="heading">
         <div class="row justify-content-center m-0">
             <h3 class="col-12 text-center title">
                     Service Details
