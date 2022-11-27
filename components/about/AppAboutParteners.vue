@@ -1,6 +1,5 @@
 <template>
-    <section class="about-partners">
-
+    <section class="about-partners">     
         <swiper :options="swiperOption" class="owl-carousel">
         <swiper-slide v-for="partner in partners.partners" :key="partner.id">
             <div class="item">
@@ -13,7 +12,6 @@
             </div>
         </swiper-slide>
         </swiper>
-        
     </section>
 </template>
 
@@ -22,36 +20,36 @@ export default {
     name: 'AppAboutPartners',
     data() {
         return {
-        swiperOption: {
+            swiperOption: {
             loop: true,
             slidesPerView: 5,
             spaceBetween: 50,
             breakpoints: {
-            // when window width is >= 320px
-            100: {
+                // when window width is >= 320px
+                100: {
                 slidesPerView: 1,
                 spaceBetween: 5,
-            },
-            // when window width is >= 480px
-            480: {
+                },
+                // when window width is >= 480px
+                480: {
                 slidesPerView: 2,
                 spaceBetween: 5,
-            },
-            // when window width is >= 640px
-            640: {
+                },
+                // when window width is >= 640px
+                640: {
                 slidesPerView: 3,
                 spaceBetween: 5,
-            },
-            992: {
+                },
+                992: {
                 slidesPerView: 4,
                 spaceBetween: 5,
-            },
-            1200: {
+                },
+                1200: {
                 slidesPerView: 5,
                 spaceBetween: 5,
+                },
+            }
             },
-            },
-        },
         }
     },
     props: ["partners"]
@@ -59,8 +57,8 @@ export default {
 </script>
 <style>
     .about-partners {
-        padding: 45px 100px 0;
-        background: var(--main-color);
+        padding: 45px 100px 0 !important;
+        background-color: var(--main-color) !important;
     }
     .about-partners::before {
         content: '';
@@ -82,11 +80,11 @@ export default {
         text-align: center;
     }
     .about-partners .owl-carousel .item img {
-        max-height: 115px;
+        height: 80px !important;
         width: auto;
         display: inline;
         max-width: 100%;
-        height: auto;
+        width: auto !important;
     }
     .about-partners .owl-carousel .owl-nav.disabled {
         display: none !important;

@@ -37,16 +37,16 @@
                         </p>
                     </div>
                     <div>
-                        <a href="#">
+                        <a :href="`https://${$store.state.footerData.facebook}`" target="_blank">
                             <font-awesome-icon icon="fa-brands fa-facebook-f" />
                         </a>
-                        <a href="#">
+                        <a :href="`https://${$store.state.footerData.twitter}`" target="_blank">
                             <font-awesome-icon icon="fa-brands fa-twitter" />
                         </a>
-                        <a href="#">
+                        <a :href="`https://${$store.state.footerData.youtube}`" target="_blank">
                             <font-awesome-icon icon="fa-brands fa-youtube" />
                         </a>
-                        <a href="#">
+                        <a :href="`https://${$store.state.footerData.instagram}`" target="_blank">
                             <font-awesome-icon icon="fa-brands fa-instagram" />
                         </a>
                     </div>
@@ -185,7 +185,7 @@
             <p> © Powered By: Rail Coder 2016-2017. All rights reserved.
                 <span class="mx-2" style="float: right">
                     <font-awesome-icon icon="fa-solid fa-envelope" />
-                    info@railcoder.com
+                    {{$store.state.websiteSettings.find(one => one.key === 'email').plain_value}}
                 </span>
                 <span class="mx-2" style="float: right">
                     <font-awesome-icon icon="fa-solid fa-square-phone" />
