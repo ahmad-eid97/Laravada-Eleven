@@ -6,81 +6,21 @@
             </h2>
         </div>
         <VueSlickCarousel :slidesToShow = "1" :slidesToScroll = "1" :arrows="true" :dots="false">
-            <div>
+            <div v-for="item in testimonials" :key="item.id">
                 <div class="item">
-                    <div class="row m-0">
+                    <div class="row m-0 insider">
                         <div class="col-auto">
-                            <img src="https://the7.io/weed/wp-content/uploads/sites/51/2019/01/weed022-150x150.jpg" alt="">
+                            <img :src="item.image" :alt="item.title">
                         </div>
                         <div class="col">
                             <p>
-                                Donec at pharetra erat. Suspendisse vitae varius ipsum. Nam elementum lectus eu enim rutrum, id ultrices mauris viverra. Vivamus sodales condimentum eros, in tempus magna facilisis sit amet. Aliquam est ligula, porta sit amet ornare id, posuere vel urna. Mauris ut nulla ut dolor dapibus luctus.
+                                {{item.description}}
                             </p>
                             <h3>
-                                Jerremy M.
+                                {{item.username}}
                             </h3>
                             <h4>
-                                regular customer
-                            </h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="item">
-                    <div class="row m-0">
-                        <div class="col-auto">
-                            <img src="https://the7.io/weed/wp-content/uploads/sites/51/2019/01/weed004-150x150.jpg" alt="">
-                        </div>
-                        <div class="col">
-                            <p>
-                                Phasellus nec volutpat eros. Morbi dignissim nulla eget ipsum porta, a pellentesque odio sodales. Integer at lacinia dolor. Donec varius, sem id molestie feugiat, tellus risus egestas nibh, convallis semper lacus lorem ac augue.
-                            </p>
-                            <h3>
-                                Alex T.
-                            </h3>
-                            <h4>
-                                regular customer
-                            </h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="item">
-                    <div class="row m-0">
-                        <div class="col-auto">
-                            <img src="https://the7.io/weed/wp-content/uploads/sites/51/2019/01/weed002-150x150.jpg" alt="">
-                        </div>
-                        <div class="col">
-                            <p>
-                                Suspendisse vitae varius ipsum. Nam elementum lectus eu enim rutrum, id ultrices mauris viverra. Vivamus sodales condimentum eros, in tempus magna facilisis sit amet. Aliquam est ligula, porta sit amet ornare id, posuere vel urna.
-                            </p>
-                            <h3>
-                                Miriam G.
-                            </h3>
-                            <h4>
-                                regular customer
-                            </h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="item">
-                    <div class="row m-0">
-                        <div class="col-auto">
-                            <img src="https://the7.io/weed/wp-content/uploads/sites/51/2019/01/weed016-150x150.jpg" alt="">
-                        </div>
-                        <div class="col">
-                            <p>
-                                Nam elementum lectus eu enim rutrum, id ultrices mauris viverra. Vivamus sodales condimentum eros, in tempus magna facilisis sit amet. Aliquam est ligula, porta sit amet ornare id, posuere vel urna. Mauris ut nulla ut dolor dapibus luctus.
-                            </p>
-                            <h3>
-                                Tiffany M.
-                            </h3>
-                            <h4>
-                                regular customer
+                                {{item.job}}
                             </h4>
                         </div>
                     </div>
@@ -96,6 +36,7 @@ import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 export default {
     components: { VueSlickCarousel },
+    props: ["testimonials"],
     name: 'AppHomeTestimonials'
 }
 </script>
@@ -118,6 +59,9 @@ export default {
         border: 4px dashed #9fca67;
         padding: 40px;
         margin: 0 auto;
+    }
+    .testimonials .item .insider {
+        align-items: center;
     }
     @include xs {
         .testimonials .item {

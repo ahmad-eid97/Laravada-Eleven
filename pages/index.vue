@@ -2,12 +2,12 @@
   <div class="home">
     <app-home-slider :sliderData="sliderData"></app-home-slider>
     <app-home-welcome></app-home-welcome>
-    <app-home-services></app-home-services>
+    <app-home-services :services="services"></app-home-services>
     <app-home-offers></app-home-offers>
     <app-home-facts></app-home-facts>
     <app-home-news></app-home-news>
     <app-home-banner></app-home-banner>
-    <app-home-testimonials></app-home-testimonials>
+    <app-home-testimonials :testimonials="testimonials"></app-home-testimonials>
   </div>
 </template>
 
@@ -26,6 +26,19 @@ import AppHomeWelcome from '../components/home/AppHomeWelcome.vue'
 
 export default {
   name: 'Home',
+  async asyncData({ $axios }) {
+    const sliderData = await $axios.get('/sliders');
+
+    const services = await $axios.get('/services');
+
+    const testimonials = await $axios.get('/testimonials');
+
+    return {
+      sliderData: sliderData.data.data.sliders,
+      services: services.data.data.services,
+      testimonials: testimonials.data.data.testimonials
+    }
+  },
   components: {
     AppHomeSlider,
     AppHomeWelcome,
@@ -36,12 +49,5 @@ export default {
     AppHomeBanner,
     AppHomeTestimonials
   },
-  async asyncData({ $axios }) {
-    const sliderData = await $axios.get('/sliders');
-
-    return {
-      sliderData: sliderData.data.data.sliders
-    }
-  }
 }
 </script>

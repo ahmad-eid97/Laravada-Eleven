@@ -1,47 +1,17 @@
 <template>
     <section class="services">
         <div class="row m-0">
-            <div class="col-md-6 col-lg-4 service">
+            <div v-for="service in services.slice(0, 3)" :key="service.id" class="col-md-6 col-lg-4 service">
                 <div class="icon">
-                    <font-awesome-icon icon="fa-solid fa-comments" />
+                    <font-awesome-icon :icon="service.item" />
                 </div>
-                <h4>Get Consultation</h4>
+                <h4>{{service.title}}</h4>
                 <p>
-                    Porttitor tristique eget eu nisi. Donec iaculis velit eu tortor sagittis interdum. Suspendisse auctor volutpat turpis!
+                    {{service.short_description}}
                 </p>
                 <div>
                     <a href="#" class="btn">
                         Contact us
-                        <font-awesome-icon icon="fa-solid fa-arrow-right" />
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 service">
-                <div class="icon">
-                    <font-awesome-icon icon="fa-solid fa-cart-shopping" />
-                </div>
-                <h4>Order Online</h4>
-                <p>
-                    Donec at orci non urna porttitor tristique eget eu nisi. Donec iaculis velit eu tortor sagittis interdum. Suspendisse auctor volutpat turpis!
-                </p>
-                <div>
-                    <a href="#" class="btn">
-                        View menu
-                        <font-awesome-icon icon="fa-solid fa-arrow-right" />
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 service">
-                <div class="icon">
-                    <font-awesome-icon icon="fa-solid fa-location-dot" />
-                </div>
-                <h4>Visit Seven Weed</h4>
-                <p>
-                    Aliquam quis justo vel ante venenatis consequat sed sit amet nisl. Aenean gravida dictum orci, id auctor ipsum tempus vel.
-                </p>
-                <div>
-                    <a href="#" class="btn">
-                        Get directions
                         <font-awesome-icon icon="fa-solid fa-arrow-right" />
                     </a>
                 </div>
@@ -53,7 +23,8 @@
 
 <script>
 export default {
-    name: 'AppHomeServices'
+    name: 'AppHomeServices',
+    props: ["services"]
 }
 </script>
 
