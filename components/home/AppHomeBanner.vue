@@ -5,7 +5,7 @@
         </h4>
         <h2>
             <font-awesome-icon icon="fa-solid fa-square-phone-flip" />
-            011 233 45 67
+            {{$store.state.websiteSettings.find(one => one.key === 'contact_phone').value}}
         </h2>
         <p>
             – open 7 days a week from 7am to 9pm –
