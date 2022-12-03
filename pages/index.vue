@@ -23,10 +23,14 @@ import AppHomeWelcome from "../components/home/AppHomeWelcome.vue";
 
 export default {
   name: "Home",
-  async asyncData({ $axios }) {
+  async asyncData({ $axios, app }) {
     const sliderData = await $axios.get("/sliders");
 
-    const whoWeAre = await $axios.get("/sections/who_we_are");
+    const whoWeAre = await $axios.get("/sections/who_we_are", {
+      headers: {
+        "Accept-Language": app.i18n.locale,
+      },
+    });
 
     const services = await $axios.get("/services");
 
