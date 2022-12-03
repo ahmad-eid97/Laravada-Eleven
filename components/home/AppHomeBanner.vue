@@ -1,7 +1,7 @@
 <template>
     <section class="banner">
         <h4>
-            322 Beverly Boulevard Los Angeles, CA 90048
+            {{$store.state.websiteSettings.find(one => one.key === 'contact_address').plain_value}}
         </h4>
         <h2>
             <font-awesome-icon icon="fa-solid fa-square-phone-flip" />
