@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <app-home-slider :sliderData="sliderData"></app-home-slider>
-    <app-home-welcome></app-home-welcome>
+    <app-home-welcome :whoWeAre="whoWeAre"></app-home-welcome>
     <app-home-services :services="services"></app-home-services>
     <app-home-offers></app-home-offers>
     <app-home-facts></app-home-facts>
@@ -12,32 +12,32 @@
 </template>
 
 <script>
-import AppHomeBanner from '../components/home/AppHomeBanner.vue'
-import AppHomeFacts from '../components/home/AppHomeFacts.vue'
-import AppHomeNews from '../components/home/AppHomeNews.vue'
-import AppHomeOffers from '../components/home/AppHomeOffers.vue'
-import AppHomeServices from '../components/home/AppHomeServices.vue'
-import AppHomeSlider from '../components/home/AppHomeSlider.vue'
-import AppHomeTestimonials from '../components/home/AppHomeTestimonials.vue'
-import AppHomeWelcome from '../components/home/AppHomeWelcome.vue'
-
-
-
+import AppHomeBanner from "../components/home/AppHomeBanner.vue";
+import AppHomeFacts from "../components/home/AppHomeFacts.vue";
+import AppHomeNews from "../components/home/AppHomeNews.vue";
+import AppHomeOffers from "../components/home/AppHomeOffers.vue";
+import AppHomeServices from "../components/home/AppHomeServices.vue";
+import AppHomeSlider from "../components/home/AppHomeSlider.vue";
+import AppHomeTestimonials from "../components/home/AppHomeTestimonials.vue";
+import AppHomeWelcome from "../components/home/AppHomeWelcome.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
   async asyncData({ $axios }) {
-    const sliderData = await $axios.get('/sliders');
+    const sliderData = await $axios.get("/sliders");
 
-    const services = await $axios.get('/services');
+    const whoWeAre = await $axios.get("/sections/who_we_are");
 
-    const testimonials = await $axios.get('/testimonials');
+    const services = await $axios.get("/services");
+
+    const testimonials = await $axios.get("/testimonials");
 
     return {
       sliderData: sliderData.data.data.sliders,
+      whoWeAre: whoWeAre.data.data,
       services: services.data.data.services,
-      testimonials: testimonials.data.data.testimonials
-    }
+      testimonials: testimonials.data.data.testimonials,
+    };
   },
   components: {
     AppHomeSlider,
@@ -47,7 +47,7 @@ export default {
     AppHomeFacts,
     AppHomeNews,
     AppHomeBanner,
-    AppHomeTestimonials
+    AppHomeTestimonials,
   },
-}
+};
 </script>

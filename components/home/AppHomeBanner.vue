@@ -5,7 +5,7 @@
         </h4>
         <h2>
             <font-awesome-icon icon="fa-solid fa-square-phone-flip" />
-            {{$store.state.websiteSettings.find(one => one.key === 'contact_phone').value}}
+            {{$store.state.websiteSettings.find(one => one.key === 'contact_phone').plain_value}}
         </h2>
         <p>
             – open 7 days a week from 7am to 9pm –
