@@ -21,12 +21,8 @@
             class="btn"
           >
             Visit dispensary
-            <font-awesome-icon icon="fa-solid fa-shop" />
+            <i class="fa-solid fa-shop"></i>
           </a>
-          <!-- <a href="#" class="btn">
-            Buy online
-            <font-awesome-icon icon="fa-solid fa-basket-shopping" />
-          </a> -->
         </div>
       </div>
       <div class="col-lg-6">
