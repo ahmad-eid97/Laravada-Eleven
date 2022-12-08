@@ -1,6 +1,6 @@
 <template>
   <section class="services">
-    <div class="row m-0">
+    <div class="row m-0" v-if="services.length >= 1">
       <div
         v-for="service in services.slice(0, 3)"
         :key="service.id"
