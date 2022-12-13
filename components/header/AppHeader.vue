@@ -6,7 +6,7 @@
     <app-top-bar></app-top-bar>
     <div class="row m-0 w-100">
       <b-navbar toggleable="lg">
-        <b-navbar-brand href="/">
+        <b-navbar-brand :href="localePath('/')">
           <img
             src="/assets/images/logo.png"
             alt="logoImage"
