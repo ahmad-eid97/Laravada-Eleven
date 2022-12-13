@@ -12,7 +12,7 @@
         </a>
       </div>
       <div class="col-auto d-flex">
-        <div class="form">
+        <div class="form" :class="$i18n.locale === 'ar' ? 'arabic' : ''">
           <input
             type="text"
             value=""
@@ -117,10 +117,14 @@ export default {
 .topbar .form i {
   color: rgb(255, 255, 255);
   font-size: 15px;
-  top: 6px;
+  top: 5px;
   line-height: 21px;
   position: absolute;
-  right: 12px;
+  right: 10px;
+}
+.topbar .form.arabic i {
+  right: unset;
+  left: 10px;
 }
 .topbar .icon {
   border-radius: 3px;
