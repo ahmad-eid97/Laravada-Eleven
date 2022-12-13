@@ -40,18 +40,18 @@
             <i class="fa-brands fa-dribbble"></i>
           </div>
         </a>
-        <langSwitch></langSwitch>
+        <lang-switch />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import langSwitch from "../langSwitch/langSwitch.vue";
+import LangSwitch from '../langSwitch/langSwitch.vue';
 export default {
   name: "AppTopBar",
   components: {
-    langSwitch,
+    LangSwitch
   },
 };
 </script>

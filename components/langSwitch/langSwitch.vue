@@ -33,7 +33,7 @@ export default {
 span {
   font-weight: 600;
   margin: 0 10px;
-  color: var(--main-color);
+  color: #fff;
   cursor: pointer;
 }
 </style>

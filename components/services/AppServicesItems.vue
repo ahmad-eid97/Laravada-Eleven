@@ -57,13 +57,6 @@ export default {
 </script>
 
 <style>
-.section-title {
-  margin: 0 auto;
-  padding: 0;
-  position: relative;
-  text-align: center;
-}
-
 .services-style-area .section-title span {
   margin-bottom: 8px;
   font-weight: 600;
