@@ -41,12 +41,17 @@
               >Testimonials</b-nav-item
             >
             <b-nav-item :to="localePath('/blogs')">News</b-nav-item>
+            <b-nav-item :to="localePath('/careers')">Career</b-nav-item>
+            <b-nav-item :to="localePath('/events')">Events</b-nav-item>
             <b-nav-item :to="localePath('/contact')">Contact</b-nav-item>
             <a href="#" class="btn">
               <i class="fa-solid fa-basket-shopping"></i>
               $0.00
             </a>
           </b-navbar-nav>
+          <div v-if="$store.state.user" class="logout" @click="logout">
+            <i class="fa-regular fa-right-from-bracket"></i>
+          </div>
         </b-collapse>
       </b-navbar>
     </div>
@@ -70,6 +75,12 @@ export default {
   },
   mounted() {},
   methods: {
+    logout() {
+      this.$store.commit("setUserData", null);
+      this.$cookies.remove("cms-auth");
+      this.$cookies.remove("cms-user");
+      this.$router.push(this.localePath("/login"));
+    },
     handleScroll() {
       if (window.pageYOffset > 30) {
         if (this.topOfPage) this.topOfPage = false;
@@ -89,6 +100,17 @@ header {
   box-shadow: 0 0 10px #aaa;
   background-color: #fff;
   position: fixed;
+}
+.logout {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--main-color);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
 nav {
