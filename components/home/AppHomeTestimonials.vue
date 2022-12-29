@@ -116,7 +116,7 @@ export default {
 .testimonials .slick-prev::before,
 .testimonials .slick-next::before {
   font-family: "slick";
-  font-size: 40px;
+  font-size: 25px;
   line-height: 1;
   opacity: 0.75;
   color: #fff;
