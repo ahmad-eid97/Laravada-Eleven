@@ -26,19 +26,28 @@
           />
         </b-navbar-brand>
 
-        <b-navbar-toggle target="navbar-toggle-collapse">
-          <template #default="{ expanded }">
-            <span
-              class="menu-trigger"
-              :class="expanded ? 'active' : ''"
-              id="menu03"
-            >
-              <p></p>
-              <p></p>
-              <p></p>
-            </span>
-          </template>
-        </b-navbar-toggle>
+        <div class="d-flex align-items-center smallScr">
+          <div class="m-0 cartIcon" @click="openCart = !openCart">
+            <div v-if="$store.state.user" class="logout" @click="logout">
+              <i class="fa-regular fa-right-from-bracket"></i>
+            </div>
+            <span>{{ $store.state.cartItems.length }}</span>
+            <i class="fa-regular fa-cart-plus"></i>
+          </div>
+          <b-navbar-toggle target="navbar-toggle-collapse">
+            <template #default="{ expanded }">
+              <span
+                class="menu-trigger"
+                :class="expanded ? 'active' : ''"
+                id="menu03"
+              >
+                <p></p>
+                <p></p>
+                <p></p>
+              </span>
+            </template>
+          </b-navbar-toggle>
+        </div>
 
         <b-collapse
           id="navbar-toggle-collapse"
@@ -56,19 +65,25 @@
             <b-nav-item :to="localePath('/careers')">Career</b-nav-item>
             <b-nav-item :to="localePath('/events')">Events</b-nav-item>
             <b-nav-item :to="localePath('/contact')">Contact</b-nav-item>
-            <!-- <a href="#" class="btn">
-              <i class="fa-solid fa-basket-shopping"></i>
-              $0.00
-            </a> -->
-            <div class="m-0 cartIcon" @click="openCart = !openCart">
-              <span>{{ $store.state.cartItems.length }}</span>
-              <i class="fa-regular fa-cart-plus"></i>
-            </div>
+            <b-nav-item
+              :to="localePath('/login')"
+              v-if="$store.state.user"
+              @click="logout"
+              class="outLarge"
+              >Logout</b-nav-item
+            >
           </b-navbar-nav>
+        </b-collapse>
+
+        <div class="d-flex align-items-center largeScr">
+          <div class="m-0 cartIcon" @click="openCart = !openCart">
+            <span>{{ $store.state.cartItems.length }}</span>
+            <i class="fa-regular fa-cart-plus"></i>
+          </div>
           <div v-if="$store.state.user" class="logout" @click="logout">
             <i class="fa-regular fa-right-from-bracket"></i>
           </div>
-        </b-collapse>
+        </div>
       </b-navbar>
     </div>
   </header>
@@ -182,6 +197,9 @@ header {
     &.opened {
       transform: translateX(0);
     }
+    @include xs {
+      width: 350px;
+    }
   }
   .cartIcon {
     border: 1px solid var(--main-color);
@@ -192,6 +210,7 @@ header {
     place-items: center;
     cursor: pointer;
     position: relative;
+    margin: 0 10px !important;
     span {
       position: absolute;
       top: -15px;
@@ -204,9 +223,17 @@ header {
       display: grid;
       place-content: center;
       font-size: 1.2rem;
+      @include sm {
+        font-size: 1rem;
+      }
     }
     i {
       color: var(--main-color);
+    }
+    @include sm {
+      width: 40px;
+      height: 40px;
+      margin: 0 10px !important;
     }
     &:hover {
       background-color: var(--main-color);
@@ -215,6 +242,12 @@ header {
         color: #fff;
       }
     }
+  }
+}
+.outLarge {
+  display: none;
+  @include md {
+    display: inline;
   }
 }
 .logout {
@@ -227,8 +260,31 @@ header {
   place-items: center;
   font-size: 1.2rem;
   cursor: pointer;
+  @include md {
+    display: none;
+  }
 }
 
+.outLarge {
+  display: none;
+  @include md {
+    display: inline;
+  }
+}
+.smallScr {
+  align-items: center;
+  display: none !important;
+  @include md {
+    display: flex !important;
+  }
+}
+.largeScr {
+  align-items: center;
+  display: flex !important;
+  @include md {
+    display: none !important;
+  }
+}
 nav {
   padding: 20px 60px 20px !important;
 }
