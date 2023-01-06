@@ -71,6 +71,9 @@ export default {
 };
 </script>
 <style lang="scss">
+.counter-area {
+  padding: 50px 0;
+}
 .counter-area .section-title {
   margin: 0;
 }

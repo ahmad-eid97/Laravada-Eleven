@@ -5,193 +5,45 @@
     </div>
 
     <swiper :options="swiperOption">
-      <swiper-slide>
+      <swiper-slide v-for="blog in blogs" :key="blog.id">
         <div>
           <div class="item">
             <div class="image">
-              <img
-                class="img-fluid"
-                src="https://the7.io/weed/wp-content/uploads/sites/51/2019/01/weed015-768x576.jpg"
-                alt=""
-              />
+              <img class="img-fluid" :src="blog.image" alt="" />
               <span class="date">
-                <span class="d-inline-block month"> JAN </span>
-                <span class="d-block day"> 29 </span>
+                <span class="d-inline-block month">
+                  {{ $date(new Date(blog.publish_date), "dd") }}
+                </span>
+                <span class="d-block day">
+                  {{ $date(new Date(blog.publish_date), "MMM") }}
+                </span>
               </span>
-              <span class="tag"> Technology </span>
+              <span class="tag"> {{ blog.category.name }} </span>
             </div>
             <h3>
-              <a href="#"> Nulla iaculis efficitu from weed </a>
+              <a href="#"> {{ blog.title }} </a>
             </h3>
             <p>
-              Suspendisse bibendum facilisis congue. Suspendisse nisi lacus,
-              convallis non accumsan sit amet, accumsan a arcu. Cras ut tempus
-              mi. Aliquam…
+              {{ blog.short_description }}
             </p>
-            <a href="#" class="btn">
+            <nuxt-link :to="`/blog/${blog.id}`" class="btn">
               Read more
               <i class="fa-solid fa-caret-right"></i>
-            </a>
-          </div>
-        </div>
-      </swiper-slide>
-
-      <swiper-slide>
-        <div>
-          <div class="item">
-            <div class="image">
-              <img
-                class="img-fluid"
-                src="https://the7.io/weed/wp-content/uploads/sites/51/2019/01/weed003-768x576.jpg"
-                alt=""
-              />
-              <span class="date">
-                <span class="d-inline-block month"> JAN </span>
-                <span class="d-block day"> 29 </span>
-              </span>
-              <span class="tag"> Industry news </span>
-            </div>
-            <h3>
-              <a href="#"> Duis cannabis – quis sem tempus enim suscipit </a>
-            </h3>
-            <p>
-              Cras ut tempus mi. Aliquam non lorem fermentum, maximus massa at,
-              interdum turpis. Integer posuere leo eros, nec ornare enim…
-            </p>
-            <a href="#" class="btn">
-              Read more
-              <i class="fa-solid fa-caret-right"></i>
-            </a>
-          </div>
-        </div>
-      </swiper-slide>
-
-      <swiper-slide>
-        <div>
-          <div class="item">
-            <div class="image">
-              <img
-                class="img-fluid"
-                src="https://the7.io/weed/wp-content/uploads/sites/51/2019/01/weed018-768x576.jpg"
-                alt=""
-              />
-              <span class="date">
-                <span class="d-inline-block month"> JAN </span>
-                <span class="d-block day"> 29 </span>
-              </span>
-              <span class="tag"> Industry news </span>
-            </div>
-            <h3>
-              <a href="#"> Vivamus sodales condimentum </a>
-            </h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu
-              eros vel eros ultrices consectetur non non mauris. Duis egestas…
-            </p>
-            <a href="#" class="btn">
-              Read more
-              <i class="fa-solid fa-caret-right"></i>
-            </a>
-          </div>
-        </div>
-      </swiper-slide>
-
-      <swiper-slide>
-        <div>
-          <div class="item">
-            <div class="image">
-              <img
-                class="img-fluid"
-                src="https://the7.io/weed/wp-content/uploads/sites/51/2019/01/weed022-768x576.jpg"
-                alt=""
-              />
-              <span class="date">
-                <span class="d-inline-block month"> JAN </span>
-                <span class="d-block day"> 29 </span>
-              </span>
-              <span class="tag"> Industry news </span>
-            </div>
-            <h3>
-              <a href="#"> Lorem ipsum cannabis consectetur non non </a>
-            </h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu
-              eros vel eros ultrices consectetur non non mauris. Duis egestas…
-            </p>
-            <a href="#" class="btn">
-              Read more
-              <i class="fa-solid fa-caret-right"></i>
-            </a>
-          </div>
-        </div>
-      </swiper-slide>
-
-      <swiper-slide>
-        <div>
-          <div class="item">
-            <div class="image">
-              <img
-                class="img-fluid"
-                src="https://the7.io/weed/wp-content/uploads/sites/51/2019/01/weed025-768x576.jpg"
-                alt=""
-              />
-              <span class="date">
-                <span class="d-inline-block month"> JAN </span>
-                <span class="d-block day"> 29 </span>
-              </span>
-              <span class="tag"> Industry news </span>
-            </div>
-            <h3>
-              <a href="#"> Vivamus id cannabis – tortor magna </a>
-            </h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu
-              eros vel eros ultrices consectetur non non mauris. Duis egestas…
-            </p>
-            <a href="#" class="btn">
-              Read more
-              <i class="fa-solid fa-caret-right"></i>
-            </a>
-          </div>
-        </div>
-      </swiper-slide>
-
-      <swiper-slide>
-        <div>
-          <div class="item">
-            <div class="image">
-              <img
-                class="img-fluid"
-                src="https://the7.io/weed/wp-content/uploads/sites/51/2019/01/weed024-768x576.jpg"
-                alt=""
-              />
-              <span class="date">
-                <span class="d-inline-block month"> JAN </span>
-                <span class="d-block day"> 29 </span>
-              </span>
-              <span class="tag"> Industry news </span>
-            </div>
-            <h3>
-              <a href="#"> Nullam tortor lectus weed store </a>
-            </h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu
-              eros vel eros ultrices consectetur non non mauris. Duis egestas…
-            </p>
-            <a href="#" class="btn">
-              Read more
-              <i class="fa-solid fa-caret-right"></i>
-            </a>
+            </nuxt-link>
           </div>
         </div>
       </swiper-slide>
     </swiper>
+    <div class="blogsBtn">
+      <button @click="$router.push('/blogs')">See All Blogs</button>
+    </div>
   </section>
 </template>
 
 <script>
 export default {
   name: "AppHomeNews",
+  props: ["blogs"],
   data() {
     return {
       swiperOption: {
@@ -288,6 +140,31 @@ export default {
   position: relative;
   text-transform: uppercase;
   border-bottom: 2px solid var(--main-color);
+}
+.blogsBtn {
+  display: flex;
+  justify-content: center;
+  button {
+    margin-top: 50px;
+    background-color: var(--main-color);
+    border-radius: 3px;
+    border: none;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+    height: 50px;
+    line-height: 20px;
+    padding-bottom: 15px;
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-top: 15px;
+    border: 1px solid var(--main-color);
+    &:hover {
+      background: #fff;
+      color: var(--main-color);
+    }
+  }
 }
 .news .item .image .date .day {
   color: rgb(34, 34, 34);

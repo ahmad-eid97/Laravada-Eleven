@@ -70,7 +70,7 @@ export default {
 
 <style lang="scss">
 .intro {
-  margin-top: 150px;
+  margin-top: 130px;
 }
 .intro .item {
   min-height: 500px;

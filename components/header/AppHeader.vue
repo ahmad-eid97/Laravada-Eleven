@@ -330,7 +330,7 @@ nav {
 }
 
 .navbar .nav-item {
-  margin: 0 16px;
+  margin: 0 5px;
   position: relative;
   padding: 5px 0;
 }

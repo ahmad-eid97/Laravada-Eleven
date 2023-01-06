@@ -3,9 +3,9 @@
     <app-home-slider :sliderData="sliderData"></app-home-slider>
     <app-home-welcome :whoWeAre="whoWeAre"></app-home-welcome>
     <app-home-services :services="services"></app-home-services>
-    <app-home-offers></app-home-offers>
+    <app-home-offers :products="products"></app-home-offers>
     <app-home-facts></app-home-facts>
-    <app-home-news></app-home-news>
+    <app-home-news :blogs="blogs"></app-home-news>
     <app-home-banner></app-home-banner>
     <app-home-testimonials :testimonials="testimonials"></app-home-testimonials>
   </div>
@@ -36,11 +36,17 @@ export default {
 
     const testimonials = await $axios.get("/testimonials");
 
+    const products = await $axios.get("/products");
+
+    const blogs = await $axios.get("/blogs?latest=1");
+
     return {
       sliderData: sliderData.data.data.sliders,
       whoWeAre: whoWeAre.data.data,
       services: services.data.data.services,
       testimonials: testimonials.data.data.testimonials,
+      products: products.data.data.products,
+      blogs: blogs.data.data.blogs,
     };
   },
   components: {
