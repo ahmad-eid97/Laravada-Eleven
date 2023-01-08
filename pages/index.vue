@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <app-home-slider :sliderData="sliderData"></app-home-slider>
+    <app-home-slider :slides="slides"></app-home-slider>
     <app-home-welcome :whoWeAre="whoWeAre"></app-home-welcome>
     <app-home-services :services="services"></app-home-services>
     <app-home-offers :products="products"></app-home-offers>
@@ -24,7 +24,11 @@ import AppHomeWelcome from "../components/home/AppHomeWelcome.vue";
 export default {
   name: "Home",
   async asyncData({ $axios, app }) {
-    const sliderData = await $axios.get("/sliders");
+    const slides = await $axios.get("/sliders", {
+      headers: {
+        "Accept-Language": app.i18n.locale,
+      },
+    });
 
     const whoWeAre = await $axios.get("/sections/who_we_are", {
       headers: {
@@ -41,7 +45,7 @@ export default {
     const blogs = await $axios.get("/blogs?latest=1");
 
     return {
-      sliderData: sliderData.data.data.sliders,
+      slides: slides.data.data.sliders,
       whoWeAre: whoWeAre.data.data,
       services: services.data.data.services,
       testimonials: testimonials.data.data.testimonials,

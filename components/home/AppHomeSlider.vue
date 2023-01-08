@@ -7,49 +7,22 @@
       :fade="true"
       :dots="false"
     >
-      <div class="item item-1">
+      <div
+        class="item item-1"
+        v-for="slide in slides"
+        :key="slide.id"
+        :style="{ background: `url(${slide.background})` }"
+      >
         <div class="overlay"></div>
         <div class="row m-0 justify-content-center align-items-center h-100">
           <div class="content">
             <h2>
-              get your cannbis
-              <br />
-              delivered - it's free
+              {{ slide.title }}
             </h2>
             <p>
-              Check out Laravada Weed online store, fill your cart
-              <br />
-              and let us know where to deliver!
+              {{ slide.description }}
             </p>
-            <a href="#" class="btn"> Browse online store </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="item item-2">
-        <div class="overlay"></div>
-        <div class="row m-0 justify-content-center align-items-center h-100">
-          <div class="content">
-            <h1>laravada weed</h1>
-            <p>High quality cannbis products</p>
-          </div>
-        </div>
-      </div>
-      <div class="item item-3">
-        <div class="overlay"></div>
-        <div class="row m-0 justify-content-center align-items-center h-100">
-          <div class="content">
-            <h2>
-              visit laravada weed Dispensary
-              <br />
-              in los angeles, california
-            </h2>
-            <p>
-              We offer a wide selection of premium cannabis products.
-              <br />
-              Come by for a visit to one of our brand stores!
-            </p>
-            <a href="#" class="btn"> Get directions </a>
+            <a :href="slide.link" class="btn">LEARN MORE</a>
           </div>
         </div>
       </div>
@@ -64,7 +37,7 @@ import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 export default {
   components: { VueSlickCarousel },
   name: "AppHomeSlider",
-  props: ["sliderData"],
+  props: ["slides"],
 };
 </script>
 
@@ -78,15 +51,6 @@ export default {
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
-}
-.intro .item-1 {
-  background-image: url(//the7.io/weed/wp-content/uploads/sites/51/2019/01/weed003.jpg);
-}
-.intro .item-2 {
-  background-image: url(//the7.io/weed/wp-content/uploads/sites/51/2019/01/w002.jpg);
-}
-.intro .item-3 {
-  background-image: url(//the7.io/weed/wp-content/uploads/sites/51/2019/01/weed031.jpg);
 }
 .intro .item .overlay {
   position: absolute;
@@ -126,7 +90,7 @@ export default {
   color: rgb(255, 255, 255);
   font-size: 24px;
   font-weight: 500;
-  height: 68px;
+  /* height: 68px; */
   line-height: 34px;
   position: relative;
   text-align: center;
