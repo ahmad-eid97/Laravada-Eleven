@@ -47,7 +47,7 @@ export default {
 }
 .intro .item {
   min-height: 500px;
-  background-size: cover;
+  background-size: cover !important;
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
