@@ -6,6 +6,8 @@
     <app-home-offers :products="products"></app-home-offers>
     <app-home-facts></app-home-facts>
     <app-home-news :blogs="blogs"></app-home-news>
+    <app-home-activities :activities="activities" />
+    <app-home-steps :steps="steps" />
     <app-home-banner></app-home-banner>
     <app-home-testimonials :testimonials="testimonials"></app-home-testimonials>
   </div>
@@ -20,6 +22,8 @@ import AppHomeServices from "../components/home/AppHomeServices.vue";
 import AppHomeSlider from "../components/home/AppHomeSlider.vue";
 import AppHomeTestimonials from "../components/home/AppHomeTestimonials.vue";
 import AppHomeWelcome from "../components/home/AppHomeWelcome.vue";
+import AppHomeActivities from "../components/home/AppHomeActivities.vue";
+import AppHomeSteps from "../components/home/AppHomeSteps.vue";
 
 export default {
   name: "Home",
@@ -44,6 +48,18 @@ export default {
 
     const blogs = await $axios.get("/blogs?latest=1");
 
+    const activities = await $axios.get("/sections/activities", {
+      headers: {
+        "Accept-Language": app.i18n.locale,
+      },
+    });
+
+    const steps = await $axios.get("/sections/steps", {
+      headers: {
+        "Accept-Language": app.i18n.locale,
+      },
+    });
+
     return {
       slides: slides.data.data.sliders,
       whoWeAre: whoWeAre.data.data,
@@ -51,6 +67,8 @@ export default {
       testimonials: testimonials.data.data.testimonials,
       products: products.data.data.products,
       blogs: blogs.data.data.blogs,
+      activities: activities.data.data,
+      steps: steps.data.data,
     };
   },
   components: {
@@ -62,6 +80,8 @@ export default {
     AppHomeNews,
     AppHomeBanner,
     AppHomeTestimonials,
+    AppHomeActivities,
+    AppHomeSteps,
   },
 };
 </script>

@@ -399,7 +399,7 @@ nav {
     transform: translateY(-10px);
   }
   .navbar-nav {
-    padding: 20px 0;
+    padding: 20px 0 0;
     transform: translateY(-10px);
   }
   .navbar-nav li {
@@ -408,9 +408,6 @@ nav {
   .navbar-nav li.nav-item a {
     // color: #fff !important;
     padding: 5px 20px;
-  }
-  .btn {
-    display: none;
   }
 }
 .dropdownBtn {
@@ -424,7 +421,9 @@ nav {
     font-weight: 700 !important;
     box-shadow: none !important;
     border: none !important;
-    min-width: 60px !important;
+    min-width: unset !important;
+    min-height: 25px !important;
+    width: 100%;
     position: relative;
     top: -3px;
     &:hover {
