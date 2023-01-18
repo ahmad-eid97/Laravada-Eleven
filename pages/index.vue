@@ -4,7 +4,7 @@
     <app-home-welcome :whoWeAre="whoWeAre"></app-home-welcome>
     <app-home-services :services="services"></app-home-services>
     <app-home-offers :products="products"></app-home-offers>
-    <app-home-facts></app-home-facts>
+    <!-- <app-home-facts></app-home-facts> -->
     <app-home-news :blogs="blogs"></app-home-news>
     <app-home-activities :activities="activities" />
     <app-home-steps :steps="steps" />
