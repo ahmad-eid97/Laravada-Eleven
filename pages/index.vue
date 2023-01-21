@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <app-home-slider :slides="slides"></app-home-slider>
+    <app-home-partners :partners="partners" />
     <app-home-welcome :whoWeAre="whoWeAre"></app-home-welcome>
     <app-home-services :services="services"></app-home-services>
     <app-home-offers :products="products"></app-home-offers>
@@ -24,6 +25,7 @@ import AppHomeTestimonials from "../components/home/AppHomeTestimonials.vue";
 import AppHomeWelcome from "../components/home/AppHomeWelcome.vue";
 import AppHomeActivities from "../components/home/AppHomeActivities.vue";
 import AppHomeSteps from "../components/home/AppHomeSteps.vue";
+import AppHomePartners from "../components/home/AppHomePartners.vue";
 
 export default {
   name: "Home",
@@ -39,6 +41,8 @@ export default {
         "Accept-Language": app.i18n.locale,
       },
     });
+
+    const partners = await $axios.get("/partners");
 
     const services = await $axios.get("/services");
 
@@ -62,6 +66,7 @@ export default {
 
     return {
       slides: slides.data.data.sliders,
+      partners: partners.data.data.partners,
       whoWeAre: whoWeAre.data.data,
       services: services.data.data.services,
       testimonials: testimonials.data.data.testimonials,
@@ -82,6 +87,7 @@ export default {
     AppHomeTestimonials,
     AppHomeActivities,
     AppHomeSteps,
+    AppHomePartners,
   },
 };
 </script>
