@@ -40,12 +40,156 @@
 export default {
   name: "AppHomeWelcome",
   props: ["whoWeAre"],
+  mounted() {
+    document
+      .querySelector(".welcome")
+      .style.setProperty(
+        "--whoWeAre-bg",
+        this.whoWeAre.find(
+          (one) => one.key === "who_we_are_background_active_section"
+        ).value === "color"
+          ? this.whoWeAre.find(
+              (one) => one.key === "who_we_are_background_color_section"
+            ).value
+          : `url(${
+              this.whoWeAre.find(
+                (one) => one.key === "who_we_are_background_image_section"
+              ).value
+            })`
+      );
+
+    document
+      .querySelector(".welcome")
+      .style.setProperty(
+        "--whoWeAre-fontSize",
+        `${
+          this.whoWeAre.find(
+            (one) => one.key === "who_we_are_font_size_section"
+          ).value
+        }px`
+      );
+
+    if (
+      this.whoWeAre.find(
+        (one) => one.key === "who_we_are_border_position_section"
+      ) &&
+      this.whoWeAre.find(
+        (one) => one.key === "who_we_are_border_position_section"
+      ).value === "both"
+    ) {
+      document
+        .querySelector(".welcome")
+        .style.setProperty(
+          "--whoWeAre-border-top",
+          `${
+            this.whoWeAre.find(
+              (one) => one.key === "who_we_are_border_size_section"
+            ).value
+          }px ${
+            this.whoWeAre.find(
+              (one) => one.key === "who_we_are_border_type_section"
+            ).value
+          } ${
+            this.whoWeAre.find(
+              (one) => one.key === "who_we_are_border_color_section"
+            ).value
+          }`
+        );
+
+      document
+        .querySelector(".welcome")
+        .style.setProperty(
+          "--whoWeAre-border-bottom",
+          `${
+            this.whoWeAre.find(
+              (one) => one.key === "who_we_are_border_size_section"
+            ).value
+          }px ${
+            this.whoWeAre.find(
+              (one) => one.key === "who_we_are_border_type_section"
+            ).value
+          } ${
+            this.whoWeAre.find(
+              (one) => one.key === "who_we_are_border_color_section"
+            ).value
+          }`
+        );
+    } else if (
+      this.whoWeAre.find(
+        (one) => one.key === "who_we_are_border_position_section"
+      ) &&
+      this.whoWeAre.find(
+        (one) => one.key === "who_we_are_border_position_section"
+      ).value === "top"
+    ) {
+      document
+        .querySelector(".welcome")
+        .style.setProperty(
+          "--whoWeAre-border-top",
+          `${
+            this.whoWeAre.find(
+              (one) => one.key === "who_we_are_border_size_section"
+            ).value
+          }px ${
+            this.whoWeAre.find(
+              (one) => one.key === "who_we_are_border_type_section"
+            ).value
+          } ${
+            this.whoWeAre.find(
+              (one) => one.key === "who_we_are_border_color_section"
+            ).value
+          }`
+        );
+    } else if (
+      this.whoWeAre.find(
+        (one) => one.key === "who_we_are_border_position_section"
+      ) &&
+      this.whoWeAre.find(
+        (one) => one.key === "who_we_are_border_position_section"
+      ).value === "bottom"
+    ) {
+      document
+        .querySelector(".welcome")
+        .style.setProperty(
+          "--whoWeAre-border-bottom",
+          `${
+            this.whoWeAre.find(
+              (one) => one.key === "who_we_are_border_size_section"
+            ).value
+          }px ${
+            this.whoWeAre.find(
+              (one) => one.key === "who_we_are_border_type_section"
+            ).value
+          } ${
+            this.whoWeAre.find(
+              (one) => one.key === "who_we_are_border_color_section"
+            ).value
+          }`
+        );
+    }
+  },
 };
 </script>
 
 <style lang="scss">
 .welcome {
   padding: 70px 50px;
+  --whoWeAre-bg: #fff;
+  --whoWeAre-fontSize: 20px;
+  --whoWeAre-border-top: 0px solid #fff;
+  --whoWeAre-border-bottom: 0px solid #fff;
+
+  background: var(--whoWeAre-bg);
+  border-top: var(--whoWeAre-border-top);
+  border-bottom: var(--whoWeAre-border-bottom);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 50px 0 0 0;
+
+  h1 {
+    font-size: var(--whoWeAre-fontSize);
+    text-align: center;
+  }
 }
 @include sm {
   .welcome {
