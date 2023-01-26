@@ -184,7 +184,7 @@ export default {
   border-bottom: var(--whoWeAre-border-bottom);
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 50px 0 0 0;
+  padding: 50px 0 50px;
 
   h1 {
     font-size: var(--whoWeAre-fontSize);
