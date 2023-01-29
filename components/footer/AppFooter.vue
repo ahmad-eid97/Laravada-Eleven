@@ -36,28 +36,12 @@
           </div>
           <div class="social">
             <a
-              :href="`https://${$store.state.footerData.facebook}`"
+              v-for="link in $store.state.socialLinks"
+              :key="link.key"
+              :href="link.url"
               target="_blank"
             >
-              <i class="fa-brands fa-facebook-f"></i>
-            </a>
-            <a
-              :href="`https://${$store.state.footerData.twitter}`"
-              target="_blank"
-            >
-              <i class="fa-brands fa-twitter"></i>
-            </a>
-            <a
-              :href="`https://${$store.state.footerData.youtube}`"
-              target="_blank"
-            >
-              <i class="fa-brands fa-youtube"></i>
-            </a>
-            <a
-              :href="`https://${$store.state.footerData.instagram}`"
-              target="_blank"
-            >
-              <i class="fa-brands fa-instagram"></i>
+              <i :class="link.icon"></i>
             </a>
           </div>
         </div>
@@ -68,23 +52,8 @@
             </div>
             <ul class="footer-list">
               <!-- <li><a href="#">About Us</a></li> -->
-              <li>
-                <nuxt-link :to="localePath('/about')">About Us</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link :to="localePath('/services')">Services</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link :to="localePath('/team')">Team</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link :to="localePath('/testimonials')">Gallery</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link :to="localePath('/blogs')">Blogs</nuxt-link>
-              </li>
-              <li>
-                <nuxt-link :to="localePath('/contact')">Contact</nuxt-link>
+              <li v-for="link in $store.state.usefulLinks" :key="link.id">
+                <a :href="link.url">{{ link.name }}</a>
               </li>
             </ul>
           </div>
