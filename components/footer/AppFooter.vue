@@ -7,21 +7,34 @@
           <h5>Get in touch!</h5>
           <div>
             <h6>Mail</h6>
-            <p>info@railcoder.com</p>
+            <p>
+              {{
+                $store.state.websiteSettings.find((one) => one.key === "email")
+                  .plain_value
+              }}
+            </p>
           </div>
           <div>
             <h6>Call us</h6>
-            <p>011 322 44 56</p>
+            <p>
+              {{
+                $store.state.websiteSettings.find(
+                  (one) => one.key === "contact_phone"
+                ).plain_value
+              }}
+            </p>
           </div>
           <div>
             <h6>Address</h6>
-            <p>8500 Beverly Boulevard Los Angeles, CA 90048</p>
+            <p>
+              {{
+                $store.state.websiteSettings.find(
+                  (one) => one.key === "contact_address"
+                ).plain_value
+              }}
+            </p>
           </div>
-          <div>
-            <h6>Business hours</h6>
-            <p>We are open 7 days a week from 7am to 9pm</p>
-          </div>
-          <div>
+          <div class="social">
             <a
               :href="`https://${$store.state.footerData.facebook}`"
               target="_blank"
@@ -49,136 +62,47 @@
           </div>
         </div>
         <div class="col-sm-6 col-md-4">
-          <h5>News</h5>
-          <div style="margin-bottom: 15px">
-            <div class="row m-0">
-              <div class="col-auto p-0">
-                <img
-                  src="https://the7.io/weed/wp-content/uploads/sites/51/2019/01/weed015-60x60.jpg"
-                  width="60"
-                  height="60"
-                  alt=""
-                />
-              </div>
-              <div class="col">
-                <h6>Nulla iaculis efficitu from weed</h6>
-                <p>29th January 2019</p>
-              </div>
+          <div class="footer-item">
+            <div class="footer-title">
+              <h6>Useful Links</h6>
             </div>
-          </div>
-          <div style="margin-bottom: 15px">
-            <div class="row m-0">
-              <div class="col-auto p-0">
-                <img
-                  src="https://the7.io/weed/wp-content/uploads/sites/51/2019/01/weed015-60x60.jpg"
-                  width="60"
-                  height="60"
-                  alt=""
-                />
-              </div>
-              <div class="col">
-                <h6>Nulla iaculis efficitu from weed</h6>
-                <p>29th January 2019</p>
-              </div>
-            </div>
-          </div>
-          <div style="margin-bottom: 15px">
-            <div class="row m-0">
-              <div class="col-auto p-0">
-                <img
-                  src="https://the7.io/weed/wp-content/uploads/sites/51/2019/01/weed015-60x60.jpg"
-                  width="60"
-                  height="60"
-                  alt=""
-                />
-              </div>
-              <div class="col">
-                <h6>Nulla iaculis efficitu from weed</h6>
-                <p>29th January 2019</p>
-              </div>
-            </div>
-          </div>
-          <div style="margin-bottom: 15px">
-            <div class="row m-0">
-              <div class="col-auto p-0">
-                <img
-                  src="https://the7.io/weed/wp-content/uploads/sites/51/2019/01/weed015-60x60.jpg"
-                  width="60"
-                  height="60"
-                  alt=""
-                />
-              </div>
-              <div class="col">
-                <h6>Nulla iaculis efficitu from weed</h6>
-                <p>29th January 2019</p>
-              </div>
-            </div>
+            <ul class="footer-list">
+              <!-- <li><a href="#">About Us</a></li> -->
+              <li>
+                <nuxt-link :to="localePath('/about')">About Us</nuxt-link>
+              </li>
+              <li>
+                <nuxt-link :to="localePath('/services')">Services</nuxt-link>
+              </li>
+              <li>
+                <nuxt-link :to="localePath('/team')">Team</nuxt-link>
+              </li>
+              <li>
+                <nuxt-link :to="localePath('/testimonials')">Gallery</nuxt-link>
+              </li>
+              <li>
+                <nuxt-link :to="localePath('/blogs')">Blogs</nuxt-link>
+              </li>
+              <li>
+                <nuxt-link :to="localePath('/contact')">Contact</nuxt-link>
+              </li>
+            </ul>
           </div>
         </div>
         <div class="col-sm-6 col-md-4">
-          <h5>Our products</h5>
-          <div style="margin-bottom: 15px">
-            <div class="row m-0">
-              <div class="col-auto p-0">
-                <img
-                  src="https://the7.io/weed/wp-content/uploads/sites/51/2019/01/s013-300x386.jpg"
-                  width="60"
-                  height="77.2"
-                  alt=""
-                />
-              </div>
-              <div class="col">
-                <h6>Cannabis Oil Light</h6>
-                <p>$19.00</p>
-              </div>
-            </div>
-          </div>
-          <div style="margin-bottom: 15px">
-            <div class="row m-0">
-              <div class="col-auto p-0">
-                <img
-                  src="https://the7.io/weed/wp-content/uploads/sites/51/2019/01/s013-300x386.jpg"
-                  width="60"
-                  height="77.2"
-                  alt=""
-                />
-              </div>
-              <div class="col">
-                <h6>Cannabis Oil Light</h6>
-                <p>$19.00</p>
-              </div>
-            </div>
-          </div>
-          <div style="margin-bottom: 15px">
-            <div class="row m-0">
-              <div class="col-auto p-0">
-                <img
-                  src="https://the7.io/weed/wp-content/uploads/sites/51/2019/01/s013-300x386.jpg"
-                  width="60"
-                  height="77.2"
-                  alt=""
-                />
-              </div>
-              <div class="col">
-                <h6>Cannabis Oil Light</h6>
-                <p>$19.00</p>
-              </div>
-            </div>
-          </div>
-          <div style="margin-bottom: 15px">
-            <div class="row m-0">
-              <div class="col-auto p-0">
-                <img
-                  src="https://the7.io/weed/wp-content/uploads/sites/51/2019/01/s013-300x386.jpg"
-                  width="60"
-                  height="77.2"
-                  alt=""
-                />
-              </div>
-              <div class="col">
-                <h6>Cannabis Oil Light</h6>
-                <p>$19.00</p>
-              </div>
+          <div class="footer-item">
+            <div class="footer-title">
+              <h6>OTHER PAGES</h6>
+              <ul class="footer-list">
+                <!-- <li><a href="#">About Us</a></li> -->
+                <li v-for="page in $store.state.footerPages" :key="page.id">
+                  <nuxt-link
+                    :to="localePath(generatePagePath(page.id))"
+                    v-if="page.status"
+                    >{{ page.name }}</nuxt-link
+                  >
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -196,7 +120,12 @@
         </span>
         <span class="mx-2" style="float: right">
           <i class="fa-solid fa-square-phone"></i>
-          1 (234) 567-891
+
+          {{
+            $store.state.websiteSettings.find(
+              (one) => one.key === "contact_phone"
+            ).plain_value
+          }}
         </span>
       </p>
     </div>
@@ -212,10 +141,23 @@ export default {
     return {};
   },
   beforeMount() {},
-  methods: {},
+  methods: {
+    generatePagePath(id) {
+      switch (id) {
+        case 1:
+          return "/about";
+        case 2:
+          return "/contact";
+        case 3:
+          return "/terms";
+        case 4:
+          return "/policy";
+      }
+    },
+  },
 };
 </script>
-<style>
+<style lang="scss">
 footer {
   padding: 20px 65px;
   background: #1a1c20
@@ -254,7 +196,10 @@ footer p {
   font-size: 14px;
   line-height: 21px;
 }
-footer .widgets a {
+footer .widgets .social {
+  margin-bottom: 20px;
+}
+footer .widgets .social a {
   background-color: rgba(133, 134, 140, 0.15);
   border-radius: 50%;
   color: rgb(133, 134, 140);
@@ -269,5 +214,16 @@ footer .widgets a {
   text-align: center;
   width: 26px;
   display: inline-block;
+}
+.footer-list {
+  padding: 0;
+  list-style: none;
+  li {
+    padding: 5px 0;
+    a {
+      color: #fff;
+      font-size: 0.9rem;
+    }
+  }
 }
 </style>
