@@ -2,14 +2,14 @@
   <div class="topbar">
     <div class="row m-0 justify-content-between">
       <div class="col-auto d-flex">
-        <a href="#">
+        <!-- <a href="#">
           <i class="fa-solid fa-user-lock"></i>
           My account
         </a>
         <a href="#">
           <i class="fa-solid fa-arrow-right-arrow-left"></i>
           Order tracking
-        </a>
+        </a> -->
       </div>
       <div class="col-auto d-flex">
         <div class="form" :class="$i18n.locale === 'ar' ? 'arabic' : ''">
@@ -23,23 +23,22 @@
         </div>
         <a href="#">
           <i class="fa-solid fa-phone"></i>
-          +11111111111111
+
+          {{
+            $store.state.websiteSettings.find(
+              (one) => one.key === "contact_phone"
+            ).plain_value
+          }}
         </a>
-        <a href="#">
-          <div class="icon">
-            <i class="fa-brands fa-facebook-f"></i>
+        <span>
+          <div
+            class="icon"
+            v-for="link in $store.state.socialLinks"
+            :key="link.key"
+          >
+            <i :class="link.icon"></i>
           </div>
-        </a>
-        <a href="#">
-          <div class="icon">
-            <i class="fa-brands fa-twitter"></i>
-          </div>
-        </a>
-        <a href="#">
-          <div class="icon">
-            <i class="fa-brands fa-dribbble"></i>
-          </div>
-        </a>
+        </span>
         <lang-switch />
       </div>
     </div>
@@ -47,11 +46,11 @@
 </template>
 
 <script>
-import LangSwitch from '../langSwitch/langSwitch.vue';
+import LangSwitch from "../langSwitch/langSwitch.vue";
 export default {
   name: "AppTopBar",
   components: {
-    LangSwitch
+    LangSwitch,
   },
 };
 </script>
@@ -137,6 +136,7 @@ export default {
   text-align: center;
   width: 28px;
   border: 1px solid #9fca67;
+  cursor: pointer;
 }
 .topbar .icon i {
   color: #fff;
