@@ -4,7 +4,7 @@
     <div class="side-bar-categories" v-if="blogDetails.features.length >= 1">
       <ul>
         <li v-for="feature in blogDetails.features" :key="feature">
-          <div class="line-circle"></div>
+          <i class="fa-solid fa-circle-dot"></i>
           <a href="#" target="_blank">{{ feature }}</a>
         </li>
       </ul>
@@ -43,6 +43,9 @@ export default {
   position: relative;
   font-size: 15px;
   font-weight: 500;
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 .side-bar-widget .side-bar-categories ul li .line-circle {
   position: absolute;
@@ -70,7 +73,7 @@ export default {
   display: inline-block;
   color: #444;
   font-weight: 400;
-  padding: 5px 0 5px 25px;
+  padding: 5px 0;
   font-weight: 600;
   position: relative;
   width: 100%;
