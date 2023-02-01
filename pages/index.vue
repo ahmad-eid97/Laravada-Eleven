@@ -2,13 +2,19 @@
   <div class="home">
     <app-home-slider :slides="slides"></app-home-slider>
     <app-home-partners :partners="partners" />
-    <app-home-welcome :whoWeAre="whoWeAre"></app-home-welcome>
+    <div v-if="whoWeAre.status">
+      <app-home-welcome :whoWeAre="whoWeAre.data"></app-home-welcome>
+    </div>
     <app-home-services :services="services"></app-home-services>
     <app-home-offers :products="products"></app-home-offers>
     <!-- <app-home-facts></app-home-facts> -->
     <app-home-news :blogs="blogs"></app-home-news>
-    <app-home-activities :activities="activities" />
-    <app-home-steps :steps="steps" />
+    <div v-if="activities.status">
+      <app-home-activities :activities="activities.data" />
+    </div>
+    <div v-if="steps.status">
+      <app-home-steps :steps="steps.data" />
+    </div>
     <app-home-banner></app-home-banner>
     <app-home-testimonials :testimonials="testimonials"></app-home-testimonials>
     <SocialChat :attendants="attendants">
@@ -131,13 +137,13 @@ export default {
     return {
       slides: slides.data.data.sliders,
       partners: partners.data.data.partners,
-      whoWeAre: whoWeAre.data.data,
+      whoWeAre: whoWeAre.data,
       services: services.data.data.services,
       testimonials: testimonials.data.data.testimonials,
       products: products.data.data.products,
       blogs: blogs.data.data.blogs,
-      activities: activities.data.data,
-      steps: steps.data.data,
+      activities: activities.data,
+      steps: steps.data,
     };
   },
   components: {
