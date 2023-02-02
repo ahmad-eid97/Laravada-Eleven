@@ -2,17 +2,17 @@
   <div class="home">
     <app-home-slider :slides="slides"></app-home-slider>
     <app-home-partners :partners="partners" />
-    <div v-if="whoWeAre.status">
+    <div v-if="$store.state.sectionsStatus.who_we_are">
       <app-home-welcome :whoWeAre="whoWeAre.data"></app-home-welcome>
     </div>
     <app-home-services :services="services"></app-home-services>
     <app-home-offers :products="products"></app-home-offers>
     <!-- <app-home-facts></app-home-facts> -->
     <app-home-news :blogs="blogs"></app-home-news>
-    <div v-if="activities.status">
+    <div v-if="$store.state.sectionsStatus.activities">
       <app-home-activities :activities="activities.data" />
     </div>
-    <div v-if="steps.status">
+    <div v-if="$store.state.sectionsStatus.steps">
       <app-home-steps :steps="steps.data" />
     </div>
     <app-home-banner></app-home-banner>
